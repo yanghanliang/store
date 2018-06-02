@@ -4,6 +4,12 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 
+// 导入bootstrap
+import 'bootstrap/dist/css/bootstrap.css';
+
+// 导入css模块
+import '@/assets/css/index.css';
+
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
