@@ -15,13 +15,14 @@
         </thead>
         <tbody>
           <tr v-for="(item, index) in list" :key="item.id">
-            <td>{{ index }}</td>
+            <td>{{ index + 1 }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.gender }}</td>
             <td>
-              <a href="edit.html">edit</a>
+              <!-- <router-link :to="'/heroes/edit/' + item.id">修改</router-link> -->
+              <router-link :to="{name: 'heroesedit', params: {id: item.id}}">修改</router-link>
               &nbsp;&nbsp;
-              <a href="javascript:alert(111);" @click.prevent="headeDelete(item.id)">delete</a>
+              <a href="javascript:video(0);" @click.prevent="headeDelete(item.id)">删除</a>
             </td>
           </tr>
         </tbody>
@@ -58,7 +59,7 @@ export default {
         });
     },
     headeDelete(id) {
-    // 发送请求删除数据
+    // 发送请求-删除数据
       if (!confirm('您确定删除吗 ?')) return;
       axios.delete('http://localhost:3000/heroes/' + id)
         .then((res) => {
