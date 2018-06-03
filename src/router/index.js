@@ -5,6 +5,7 @@ import Router from 'vue-router';
 import HeroesList from '@/views/heroes/list';
 import WeaponsList from '@/views/weapons/list';
 import EquipsList from '@/views/equips/list';
+import HeroesAdd from '@/views/heroes/add';
 
 // 注册插件Vue-Router插件
 Vue.use(Router);
@@ -14,6 +15,7 @@ export default new Router({
     { name: 'home', path: '/', redirect: { name: 'heroes' } },
     { name: 'heroes', path: '/heroes', component: HeroesList },
     { name: 'weapons', path: '/weapons', component: WeaponsList },
-    { name: 'equips', path: '/equips', component: EquipsList }
+    { name: 'equips', path: '/equips', component: EquipsList },
+    { name: 'heroesadd', path: '/heroes/add', component: HeroesAdd }
   ]
 });
