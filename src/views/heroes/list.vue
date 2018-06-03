@@ -46,7 +46,7 @@ export default {
   methods: {
     loadDate() {
       // 发送请求(渲染页面)
-      this.$http.get('http://localhost:3000/heroes')
+      this.$http.get('/heroes')
         .then((res) => {
           if (res.status === 200) {
             this.list = res.data;
@@ -59,7 +59,7 @@ export default {
     headeDelete(id) {
     // 发送请求-删除数据
       if (!confirm('您确定删除吗 ?')) return;
-      this.$http.delete('http://localhost:3000/heroes/' + id)
+      this.$http.delete('/heroes/' + id)
         .then((res) => {
           if (res.status === 200) {
             this.loadDate(); // 重新加载数据(重新渲染页面)
