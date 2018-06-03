@@ -19,8 +19,6 @@
 </template>
 
 <script>
-// 引入axios模块
-import axios from 'axios';
 
 export default {
   data() {
@@ -39,7 +37,7 @@ export default {
   methods: {
     loadData() {
       // 发送请求-根据id获取当前数据
-      axios.get(`http://localhost:3000/heroes/${this.id}`)
+      this.$http.get(`http://localhost:3000/heroes/${this.id}`)
         .then((res) => {
           if (res.status === 200) {
             this.formData = res.data;
@@ -50,7 +48,7 @@ export default {
         });
     },
     headerEdit() {
-      axios.patch(`http://localhost:3000/heroes/${this.id}`, this.formData)
+      this.$http.patch(`http://localhost:3000/heroes/${this.id}`, this.formData)
         .then((res) => {
           if (res.status === 200) {
             this.$router.push({

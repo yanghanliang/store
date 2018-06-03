@@ -19,8 +19,6 @@
 </template>
 
 <script>
-// 导入axios模块
-import axios from 'axios';
 
 export default {
   data() {
@@ -33,7 +31,7 @@ export default {
   },
   methods: {
     handleAdd() {
-      axios.post('http://localhost:3000/heroes', this.formData)
+      this.$http.post('http://localhost:3000/heroes', this.formData)
         .then((res) => {
           if (res.status === 201) {
             this.$router.push({
